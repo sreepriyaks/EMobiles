@@ -8,7 +8,6 @@ import { fetchPhones } from '../../actions';
 class PhonesList extends Component {
 
     componentDidMount() {
-        console.log("phonelist componentDidMount");
         this.props.fetchPhones();
     }
 
@@ -56,7 +55,6 @@ class PhonesList extends Component {
             );
         }
 
-        console.log(this.props);
         return (
             <div className='row'>
                 <Search />
