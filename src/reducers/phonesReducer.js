@@ -8,10 +8,10 @@ const PhonesReducer = (state = initialState, action) => {
             return ({ ...state }, action.payload);
 
         case SAVE_NEW_PHONE_SUCCESS:
-            return ({ ...state }, action.payload);
+            return [...action.payload];
 
         default:
-            return state;
+            return [...state];
     }
 };
 
