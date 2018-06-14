@@ -53,8 +53,6 @@ class Admin extends Component {
 
     render() {
         const phones = this.props.phones;
-        console.log(phones);
-        console.log(`Printing Array.length : ${ phones.length }`);
 
         if (phones === undefined || (Object.keys(phones).length === 0 && phones.constructor === Object)) {
             return (
