@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.3.0",
     "mongodb": "^2.2.33",
     "ramda": "^0.25.0",
     "react": "^16.4.0",

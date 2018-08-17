@@ -72,7 +72,6 @@ const database = {
       let collection = db.collection(collectionName);
       collection.update(query, data, { upsert: true }, (err, result) => {
         if (err) {
-          console.log(err);
           return reject(err);
         }
         return resolve(result);
@@ -85,9 +84,21 @@ const database = {
       let collection = db.collection(collectionName);
       collection.deleteOne(query, (err, result) => {
         if (err) {
-          console.log(err);
           return reject(err);
         }
+        return resolve(result);
+      });
+    });
+  };
+
+  db.search = (collectionName, query) => {
+    return new Promise((resolve, reject) => {
+      let collection = db.collection(collectionName);
+      collection.find(query).toArray((err, result) => {
+        if (err) {
+          return reject(err);
+        }
+
         return resolve(result);
       });
     });

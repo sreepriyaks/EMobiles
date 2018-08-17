@@ -59,7 +59,6 @@ let add = async mobile => {
       data: result
     };
   } catch (err) {
-    console.log('Err in controller', err);
     return {
       code: 500,
       status: 'Request Failed',

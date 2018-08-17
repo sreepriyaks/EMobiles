@@ -1,3 +1,4 @@
 module.exports = {
-    mobileController: require('./mobile.controller')
+  mobileController: require('./mobile.controller'),
+  authController: require('./auth.controller')
 };
