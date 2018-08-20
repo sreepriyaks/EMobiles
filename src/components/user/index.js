@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import Search from '../search';
 import PhoneList from '../phonesList';
 class User extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { modalIsOpen: false };
+  }
+
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  handleModalCloseRequest = () => {
+    // opportunity to validate something and keep the modal open even if it
+    // requested to be closed
+    this.setState({ modalIsOpen: false });
+  };
+
+  handleSaveClicked = e => {
+    alert('Save button was clicked');
+  };
+
   render() {
     return (
       <div>
@@ -26,8 +50,7 @@ class User extends Component {
                   <a
                     href="#"
                     className="nav-link text-light"
-                    data-toggle="modal"
-                    data-target="#contactUsModal"
+                    onClick={this.openModal}
                   >
                     Contact Us
                   </a>
@@ -36,6 +59,49 @@ class User extends Component {
             </div>
           </div>
         </nav>
+
+        <div>
+          <Modal
+            className="Modal__Bootstrap modal-dialog text-dark custommodal"
+            closeTimeoutMS={150}
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.handleModalCloseRequest}
+          >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h4 className="modal-title">Contact Us</h4>
+                <button
+                  type="button"
+                  className="close"
+                  onClick={this.handleModalCloseRequest}
+                >
+                  <span aria-hidden="true">&times;</span>
+                  <span className="sr-only">Close</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                  <label for="email">E-Mail</label>
+                  <input type="email" class="form-control" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" placeholder="Message" />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-success" data-dismiss="modal">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </Modal>
+        </div>
+
         <Search />
         <PhoneList />
       </div>
