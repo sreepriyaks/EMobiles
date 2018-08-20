@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Search from '../search';
 import PhoneList from '../phonesList';
+import { Link } from 'react-router-dom';
 class User extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +35,9 @@ class User extends Component {
           id="main-nav"
         >
           <div className="container">
-            <a href="index.html" className="navbar-brand text-light">
+            <Link to={'/'} className="navbar-brand text-light">
               E-Mobiles
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               data-toggle="collapse"
@@ -62,7 +63,7 @@ class User extends Component {
 
         <div>
           <Modal
-            className="Modal__Bootstrap modal-dialog text-dark custommodal"
+            className="Modal__Bootstrap modal-dialog text-dark mg-t"
             closeTimeoutMS={150}
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.handleModalCloseRequest}

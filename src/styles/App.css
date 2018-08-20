@@ -24,10 +24,16 @@ body {
   width: 20rem;
 }
 
-.thumbnail {
+.login .card {
+  width: 30rem;
+}
+
+.mg-t {
   margin-top: 150px;
 }
 
-.custommodal {
+.login {
   margin-top: 150px;
+  padding: 10px;
+  opacity: 0.8;
 }

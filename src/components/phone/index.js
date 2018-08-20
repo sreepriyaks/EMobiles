@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as R from 'ramda';
+import { Link } from 'react-router-dom';
 
 import { fetchPhoneById } from '../../actions';
 
@@ -37,7 +38,7 @@ class Phone extends Component {
   renderContent() {
     const { phone } = this.props;
     return (
-      <div className="thumbnail text-dark">
+      <div className="mg-t text-dark">
         <div className="row">
           <div className="col-md-6 col-sm-6 col-lg-6">
             <img className="img-thumbnail" src={phone.image} alt={phone.name} />
@@ -60,6 +61,29 @@ class Phone extends Component {
 
     return (
       <div className="view-container">
+        <nav
+          className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
+          id="main-nav"
+        >
+          <div className="container">
+            <a href="" className="navbar-brand text-light">
+              E-Mobiles
+            </a>
+            {/* <Link to={'/'} className="navbar-brand text-light">
+              E-Mobiles
+            </Link> */}
+            <button
+              className="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarCollapse">
+              <ul className="navbar-nav ml-auto" />
+            </div>
+          </div>
+        </nav>
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-lg-12 App-margin-10">
