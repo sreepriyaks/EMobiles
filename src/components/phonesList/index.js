@@ -12,18 +12,17 @@ class PhonesList extends Component {
 
   renderPhone(phone, index) {
     const shortDescription = `${phone.description.substring(0, 60)}...`;
-    console.log(shortDescription);
 
     return (
       <div className="card mb-3" key={index}>
         <img className="card-img-top" src={phone.image} alt={phone.name} />
         <div className="card-body">
-          <h4 className="card-title">
+          <div className="card-title">
             <h4 className="pull-right">${phone.price}</h4>
             <h4>
               <Link to={`/phones/${phone.id}`}>{phone.name}</Link>
             </h4>
-          </h4>
+          </div>
           <p className="card-text">{shortDescription}</p>
           <Link to={`/phones/${phone.id}`} className="btn btn-info btn-block">
             More info
@@ -43,7 +42,7 @@ class PhonesList extends Component {
     }
 
     return (
-      <div class="container d-flex flex-wrap justify-content-around row-hl text-dark">
+      <div className="container d-flex flex-wrap justify-content-around row-hl text-dark">
         {phones.map((phone, index) => this.renderPhone(phone, index))}
       </div>
     );

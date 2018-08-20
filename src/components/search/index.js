@@ -30,17 +30,17 @@ class Search extends Component {
 
   render() {
     return (
-      <div class="searchbar container">
-        <div class="input-group">
+      <div className="searchbar container">
+        <div className="input-group">
           <input
             value={this.props.keywords}
             onChange={this.handleChange}
             type="text"
             className="form-control"
           />
-          <div class="input-group-append">
+          <div className="input-group-append">
             <button
-              class="btn btn-info"
+              className="btn btn-info"
               onClick={this.handleSubmit}
               type="button"
             >
