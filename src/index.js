@@ -1,4 +1,4 @@
-import './styles/index.css';
+import './styles/App.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,14 +10,11 @@ import routes from './routes';
 
 const store = configureStore();
 
-
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <div>
-                {routes}
-            </div>
-        </BrowserRouter>
-    </Provider>
-    , document.getElementById('root')
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>{routes}</div>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
 );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Search from '../search';
 import PhoneList from '../phonesList';
-class Admin extends Component {
+class User extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Admin extends Component {
     );
   }
 }
-export default Admin;
+export default User;
