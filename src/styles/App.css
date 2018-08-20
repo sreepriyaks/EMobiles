@@ -37,3 +37,11 @@ body {
   padding: 10px;
   opacity: 0.8;
 }
+
+.alert {
+  width: 20rem;
+}
+
+.alert .btn {
+  margin-left: 50px;
+}
