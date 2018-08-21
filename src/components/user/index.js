@@ -7,13 +7,17 @@ class User extends Component {
   constructor(props) {
     super(props);
     this.state = { modalIsOpen: false };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleModalCloseRequest = this.handleModalCloseRequest.bind(this);
   }
 
-  openModal = () => {
+  handleOpenModal = () => {
     this.setState({ modalIsOpen: true });
   };
 
-  closeModal = () => {
+  handleCloseModal = () => {
     this.setState({ modalIsOpen: false });
   };
 
@@ -21,10 +25,6 @@ class User extends Component {
     // opportunity to validate something and keep the modal open even if it
     // requested to be closed
     this.setState({ modalIsOpen: false });
-  };
-
-  handleSaveClicked = e => {
-    alert('Save button was clicked');
   };
 
   render() {
@@ -48,7 +48,10 @@ class User extends Component {
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link text-light" onClick={this.openModal}>
+                  <a
+                    className="nav-link text-light"
+                    onClick={this.handleOpenModal}
+                  >
                     Contact Us
                   </a>
                 </li>

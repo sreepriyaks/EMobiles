@@ -9,14 +9,36 @@ import { fetchPhoneById } from '../../actions';
 class Phone extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = {
+      modalIsOpen: false,
+      alertClass:
+        'container alert alert-danger alert-dismissible fixed-top d-none'
+    };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleModalCloseRequest = this.handleModalCloseRequest.bind(this);
   }
 
-  openModal = () => {
+  showAlert = () => {
+    this.setState({
+      alertClass:
+        'container alert alert-danger alert-dismissible fixed-top d-block'
+    });
+  };
+
+  hideAlert = () => {
+    this.setState({
+      alertClass:
+        'container alert alert-danger alert-dismissible fixed-top d-none'
+    });
+  };
+
+  handleOpenModal = () => {
     this.setState({ modalIsOpen: true });
   };
 
-  closeModal = () => {
+  handleCloseModal = () => {
     this.setState({ modalIsOpen: false });
   };
 
@@ -24,10 +46,6 @@ class Phone extends Component {
     // opportunity to validate something and keep the modal open even if it
     // requested to be closed
     this.setState({ modalIsOpen: false });
-  };
-
-  handleSaveClicked = e => {
-    alert('Save button was clicked');
   };
 
   componentDidMount() {
@@ -256,13 +274,13 @@ class Phone extends Component {
               <div className="float-right">
                 <button
                   className="btn btn-outline-success mr-3"
-                  onClick={this.openModal}
+                  onClick={this.handleOpenModal}
                 >
                   Edit
                 </button>
                 <button
                   className="btn btn-outline-danger mr-3"
-                  data-toggle="#confirmDelete"
+                  onClick={this.showAlert}
                 >
                   Delete
                 </button>
@@ -272,18 +290,15 @@ class Phone extends Component {
           </div>
         </div>
 
-        <div
-          class="container alert alert-danger alert-dismissible fixed-top"
-          id="confirmDelete"
-        >
-          <button class="close" type="button" data-dismiss="alert">
+        <div className={this.state.alertClass} id="confirmDelete">
+          <button className="close" type="button" onClick={this.hideAlert}>
             <span>&times;</span>
           </button>
-          <h4 class="alert-heading">Are you sure?</h4>
-          <p>Continue Deleting the Phone?</p>
+          <h4 className="alert-heading my-3">Are you sure?</h4>
+          <p className="my-3">Continue Deleting the Phone?</p>
           <hr />
-          <button class="btn btn-danger">Yes</button>
-          <button class="btn btn-info" data-dismiss="alert">
+          <button className="btn btn-danger mt-2">Yes</button>
+          <button className="btn btn-info mt-2" onClick={this.hideAlert}>
             No
           </button>
         </div>
