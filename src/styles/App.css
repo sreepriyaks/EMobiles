@@ -45,3 +45,7 @@ body {
 .alert .btn {
   margin-left: 50px;
 }
+
+.nav-link {
+  cursor: pointer;
+}

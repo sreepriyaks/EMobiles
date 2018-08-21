@@ -48,11 +48,7 @@ class User extends Component {
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a
-                    href="#"
-                    className="nav-link text-light"
-                    onClick={this.openModal}
-                  >
+                  <a className="nav-link text-light" onClick={this.openModal}>
                     Contact Us
                   </a>
                 </li>
